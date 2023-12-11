@@ -12,8 +12,13 @@ const FullBlog = ({ blog, handlePrev, handleNext, handleClose }) => {
       <FaTimes className="full-blog-close" onClick={handleClose} />
       <div className="full-blog-content">
         <h3>{blog.title}</h3>
+        <div className='full-blog-img-div'>
         <Image src={blog.Image} alt={blog.title} className="full-blog-image" />
-        <p>{blog.desc}</p>
+        </div>
+        <div className='full-blog-desc-div'>
+        <p className='full-blog-desc'>{blog.desc}</p>
+
+        </div>
       </div>
       <div className="full-blog-navigation">
         <FaArrowAltCircleLeft onClick={handlePrev} style={{ fontSize: '24px', marginRight: '20px', cursor: 'pointer' }} />

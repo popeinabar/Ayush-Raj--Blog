@@ -23,3 +23,26 @@
     padding: 30px;
     
 }
+.me-auto{
+  margin-right: 0px !important;
+}
+.navbar-nav{
+  width: 100%;
+}
+.logout-btn{
+  width: 100%; 
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.profile{
+  padding-right: 15px;
+}
+@media (max-width:991px) {
+  .logout-btn{
+    width: 100%; 
+    display: flex;
+    justify-content: start;
+    }
+    
+}

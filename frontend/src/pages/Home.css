@@ -7,6 +7,7 @@
 /* Add this CSS to your stylesheets */
 
 .full-blog-overlay {
+
     position: fixed;
     top: 0;
     left: 0;
@@ -58,4 +59,17 @@
     height: auto;
     max-width: 385px;
     margin: 20px;
+  }
+  .full-blog-img-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .full-blog-desc-div{
+    width: 100%;
+    display: flex;
+    justify-content: center ;
+  }
+  .full-blog-desc{
+    width: 80%;
   }

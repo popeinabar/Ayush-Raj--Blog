@@ -14,7 +14,7 @@ function BlogForm() {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [error, setError] = useState(null);
-  const [ setEmptyFields] = useState([]);
+  const [ emptyFields,setEmptyFields] = useState([]);
   const [image, setImage] = useState([]);
   const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
@@ -56,7 +56,7 @@ function BlogForm() {
 
     const blog = { title, desc, Image: uploadedImageUrl };
 
-    const response = await fetch('http://localhost:4000/api/blogs', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/blogs`, {
       method: 'POST',
       body: JSON.stringify(blog),
       headers: {

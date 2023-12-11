@@ -12,7 +12,7 @@ function UserblogComp({ blog }) {
   const [error, setError] = useState(null);
   const [editedTitle, setEditedTitle] = useState(blog.title);
   const [editedDesc, setEditedDesc] = useState(blog.desc);
-  const [ setUploadedImageUrl] = useState('');
+  const [ uploadedImageUrl,setUploadedImageUrl] = useState('');
   const [image, setImage] = useState(null);
 
 
@@ -21,7 +21,7 @@ function UserblogComp({ blog }) {
 
     const handleEditSubmit = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/blogs/${blog._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/blogs/${blog._id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ function UserblogComp({ blog }) {
     try {
       const updatedData = { [field]: value };
 
-      const response = await fetch(`http://localhost:4000/api/blogs/${blog._id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/blogs/${blog._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ function UserblogComp({ blog }) {
       return;
     }
 
-    const response = await fetch(`http://localhost:4000/api/blogs/${blog._id}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/blogs/${blog._id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -176,19 +176,17 @@ function UserblogComp({ blog }) {
 
   return (
     <div>
-      <div key={blog._id}>
+      <div key={blog._id} className='profile-blog'>
     
-       
+       <div className='edit-div-img'>
+
         <Image
           // src={uploadedImageUrl}
+          className='edit-img'
           src={blog.Image}
           alt='Green double couch with wooden legs'
           borderRadius='lg'
-          style={{ height: '229px', width: '333px',  objectFit: 'cover'}}
         />
-        <Button colorScheme='blue' onClick={handleEditImageClick}>
-          Edit Image
-        </Button>
         <input
           type="file"
           accept="image/*"
@@ -196,21 +194,29 @@ function UserblogComp({ blog }) {
           ref={imageInputRef}
           style={{ display: 'none' }}
         />
+       </div>
+        <div className='profile-input'>
+          
+
+            <Editable
+            className='profile-title'
+              textAlign='center'
+              defaultValue={blog.title}
+              fontSize='2xl'
+              isPreviewFocusable={false}
+              onChange={handleTitleChange}
+              onBlur={handleTitleBlur}  // Handle onBlur event for the title
+            >
+              <EditablePreview className='edit-title'/>
+              <Input as={EditableInput} className='edit-title-input'/>
+              <EditableControls field="title" />
+            </Editable>
+          
+
+
 
         <Editable
-          textAlign='center'
-          defaultValue={blog.title}
-          fontSize='2xl'
-          isPreviewFocusable={false}
-          onChange={handleTitleChange}
-          onBlur={handleTitleBlur}  // Handle onBlur event for the title
-        >
-          <EditablePreview />
-          <Input as={EditableInput} />
-          <EditableControls field="title" />
-        </Editable>
-
-        <Editable
+        className='profile-desc'
           textAlign='center'
           defaultValue={blog.desc}
           fontSize='2xl'
@@ -218,17 +224,24 @@ function UserblogComp({ blog }) {
           onChange={handleDescChange}
           onBlur={handleDescBlur}  // Handle onBlur event for the description
         >
-          <EditablePreview />
-          <Input as={EditableInput} />
+          <EditablePreview className='edit-desc'/>
+          <Input as={EditableInput} className='edit-desc-input'/>
           <EditableControls field="desc" />
         </Editable>
 
-        <Button colorScheme='blue' onClick={handleClick}>
+        </div>
+        <div className='btns'>
+          
+        <Button colorScheme='blue' onClick={handleEditImageClick} className='edit-img-btn'>
+          Edit Image
+        </Button>
+        <Button colorScheme='blue' onClick={handleClick} className='edit-delete'>
           Delete
         </Button>
-        <Button colorScheme='blue' onClick={() => { setEditedTitle(blog.title); setEditedDesc(blog.desc); }}>
+        </div>
+        {/* <Button colorScheme='blue' onClick={() => { setEditedTitle(blog.title); setEditedDesc(blog.desc); }}>
           Complete Edit
-        </Button>
+        </Button> */}
       </div>
       {error && <div>{error}</div>}
     </div>

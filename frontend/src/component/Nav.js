@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Button } from '@chakra-ui/react'
 import '../index.css'
+
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
@@ -20,22 +21,22 @@ function BasicExample() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">BlogX</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="me-auto" to={"/"}>
+            <Link className="" to={"/"}>
               <Nav.Link href="#home" className='nav_link'>Home</Nav.Link>
             </Link>
             {user ? (
               // If user exists, render Link without Tooltip
-              <Link className="me-auto" to={"/profile"}>
+              <Link className="" to={"/profile"}>
                 <Nav.Link href="#profile" className='nav_link'>Profile</Nav.Link>
               </Link>
             ) : (
               // If user doesn't exist, render Link with Tooltip
               <Tooltip hasArrow label='Login/Signup to Access' bg='gray.300' color='black'>
-                <Link className="me-auto" to={"/profile"}>
+                <Link className="" to={"/profile"}>
                   <Nav.Link href="#profile" className='nav_link'>Profile</Nav.Link>
                 </Link>
               </Tooltip>
@@ -44,15 +45,15 @@ function BasicExample() {
 
 
             {user && (
-            <div>
-                <span>
-               <Avatar name={user.email.split('@')[0]} src='https://bit.ly/broken-link' />
+            <div className='logout-btn'>
+                <span className='profile'>
+               <Avatar name={user?.email?.split('@')[0]} src='https://bit.ly/broken-link' />
                 </span>
                 <Button colorScheme='blue' variant='outline' onClick={handleClick}>Logout</Button>
             </div>
             )}
             {!user && (
-            <div>
+            <div className='login-btn'>
               <Link className="me-auto" to={"/login"}>
                 <Nav.Link href="#login" className='nav_link'>Login</Nav.Link>
               </Link>

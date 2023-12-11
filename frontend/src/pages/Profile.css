@@ -82,6 +82,134 @@ padding-left: 40px;
 .edit-div-outer{
     width: 100%;
 }
+
+.profile-blog{
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem;
+}
+
+.btns{
+    display: flex;
+    justify-content: end;
+    padding: 1rem 3rem 1rem 0rem;
+    flex-direction: column;
+}
+.edit-img-btn{
+    margin-bottom: 10px;
+}
+
+.profile-input{
+width: 100%;
+padding-left: 3rem;
+}
+.profile-desc{
+    padding: 0px 1rem 0rem 1rem;
+    display: flex;
+    align-items: center
+
+}
+.profile-title{
+    padding: 0px 1rem 1rem 1rem;;
+    display: flex;
+    align-items: center
+}
+.edit-title{
+    min-height: 58px;
+    border: 1px solid black;
+    width: 45%;
+    display: flex;
+    align-items: flex-start;
+    padding: 5px;
+    overflow: scroll;
+    margin: 5px;
+    font-size: medium !important;
+}
+
+.edit-desc{
+    min-height: 150px;
+    font-size: medium !important;
+    border: 1px solid black;
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    max-height: 150px;
+    overflow: scroll;
+    margin: 5px;
+    height: 80%;
+}
+
+.edit-img{
+    min-height: 213px;
+    min-width: 320px;
+object-fit: cover;
+}
+.edit-title-input{
+    width: 45% !important;
+    padding: 5px;
+    overflow: scroll;
+    margin: 5px;
+    font-size: medium !important;
+}
+.edit-desc-input{
+    width: 80%;
+    min-height: 150px;
+    padding: 5px;
+    overflow: scroll;
+    margin: 5px;
+    font-size: medium !important;
+}
+
+
+
+@media (max-width:934px) {
+    .profile-blog{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .btns{
+        width: 100%;
+align-items: end;
+    }
+    
+    .edit-img{
+        min-height: 213px;
+    object-fit: cover;
+    max-height: 357px;
+    min-width: auto;
+    padding: 1rem;
+    }
+    .edit-title{
+        min-height: 58px;
+    }
+    .edit-desc{
+        width: 100%;
+        min-height: 200px;
+    }
+    .profile-input{
+        padding: 0px;
+    }
+    /* .edit-div-img{
+        width: 100%;
+    
+        justify-content: center;
+        display: flex;
+    } */
+    .profile-blog{
+        margin: 1rem;
+    }
+    .btns{
+        flex-direction: row;
+
+        align-items: center;
+    }
+    .edit-img-btn{
+        margin: 0px 5px 0px 0px;
+    }
+}
+
+
 @media (max-width:770px) {
     .input-form{
         display: flex;
@@ -108,5 +236,5 @@ padding-left: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
+        }   
 }
