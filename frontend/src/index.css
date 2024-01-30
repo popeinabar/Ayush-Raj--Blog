@@ -1,5 +1,7 @@
 
-
+.login-btn{
+  display: flex;
+}
 :root {
   --primary:  口#1aac83;;
   --error:#e7195a;
@@ -43,6 +45,10 @@
     width: 100%; 
     display: flex;
     justify-content: start;
+    }
+    .login-btn{
+      display: flex;
+      flex-direction: column;
     }
     
 }
